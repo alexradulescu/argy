@@ -6,8 +6,8 @@ import { database } from '../firebase'
 
 export const ExpenseFormContainer: FC = () => {
   const [expense, setExpense] = useState({
-    title: undefined,
-    amount: undefined
+    title: '',
+    amount: ''
   })
 
   const onChangeExpense = (e: React.InputEvent) => {
@@ -19,8 +19,8 @@ export const ExpenseFormContainer: FC = () => {
 
   const clearForm = () => {
     setExpense({
-      title: undefined,
-      amount: undefined
+      title: '',
+      amount: ''
     })
   }
 
