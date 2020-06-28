@@ -1,10 +1,14 @@
 import React, { FC, useState } from 'react'
-import Button from '@material-ui/core/Button'
-import TextField from '@material-ui/core/TextField'
-import FormControl from '@material-ui/core/FormControl'
-import Select from '@material-ui/core/Select'
-import InputLabel from '@material-ui/core/InputLabel'
-import MenuItem from '@material-ui/core/MenuItem'
+import {
+  Button,
+  TextField,
+  FormControl,
+  Select,
+  InputLabel,
+  MenuItem,
+  Paper,
+  Typography
+} from '@material-ui/core'
 
 import { database } from '../firebase'
 
@@ -37,8 +41,13 @@ export const ExpenseFormContainer: FC = () => {
   }
 
   return (
-    <form onSubmit={onSubmit}>
+    <Paper
+      component="form"
+      style={{ padding: 16, marginTop: 16 }}
+      onSubmit={onSubmit}
+    >
       <FormControl margin="dense" fullWidth>
+        <h3 style={{ margin: '0 0 16px 0' }}>Add Expense</h3>
         <TextField
           id="outlined-basic"
           label="Description"
@@ -82,10 +91,10 @@ export const ExpenseFormContainer: FC = () => {
       </FormControl>
       <FormControl fullWidth margin="dense">
         <Button type="submit" variant="contained" color="primary" size="large">
-          Add Transaction
+          Add Expense
         </Button>
       </FormControl>
-    </form>
+    </Paper>
   )
 }
 
