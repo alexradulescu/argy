@@ -24,11 +24,9 @@ export const App: FC = () => {
         flexDirection="column"
         style={{ maxWidth: 960, width: '90%', margin: 'auto' }}
       >
-        <main className="container">
-          <h1 className="text-light text-center">Dashboard</h1>
-          <ExpensesContainer />
-          <ExpenseFormContainer />
-        </main>
+        <h1>Dashboard</h1>
+        <ExpensesContainer />
+        <ExpenseFormContainer />
       </Box>
     </ThemeProvider>
   )
