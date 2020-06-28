@@ -1,30 +1,31 @@
 import React, { FC, useMemo } from 'react'
 import Box from '@material-ui/core/Box'
-import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 
 import { ExpensesContainer, ExpenseFormContainer } from './containers'
 
 export const App: FC = () => {
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
-
   const theme = useMemo(
     () =>
       createMuiTheme({
         palette: {
-          type: prefersDarkMode ? 'dark' : 'light'
+          type: 'dark'
         }
       }),
-    [prefersDarkMode]
+    []
   )
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box display="flex" flexDirection="column">
+      <Box
+        display="flex"
+        flexDirection="column"
+        style={{ maxWidth: 960, width: '90%', margin: 'auto' }}
+      >
         <main className="container">
-          <h1 className="text-light text-center">Welcome to Argy</h1>
+          <h1 className="text-light text-center">Dashboard</h1>
           <ExpensesContainer />
           <ExpenseFormContainer />
         </main>

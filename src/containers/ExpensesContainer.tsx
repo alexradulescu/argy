@@ -22,7 +22,6 @@ export const ExpensesContainer = () => {
           ...document.data()
         }))
         setExpenses(fetchedExpenses)
-        console.log(fetchedExpenses)
       })
     return () => {
       expensesConnection()
@@ -41,12 +40,12 @@ export const ExpensesContainer = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {expenses.map(expense => (
-            <TableRow key={expense.id}>
+          {expenses.map(({ id, description, category, amount }) => (
+            <TableRow key={id}>
               <TableCell>2020-06-24</TableCell>
-              <TableCell>{expense.title}</TableCell>
-              <TableCell>{expense.category || 'None?'}</TableCell>
-              <TableCell align="right">{expense.amount}</TableCell>
+              <TableCell>{description}</TableCell>
+              <TableCell>{category || 'None?'}</TableCell>
+              <TableCell align="right">{amount}</TableCell>
             </TableRow>
           ))}
         </TableBody>
