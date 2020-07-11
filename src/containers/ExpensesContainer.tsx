@@ -6,26 +6,27 @@ export const ExpensesContainer = () => {
   const { expenses } = useExpenses()
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <td>Date</td>
-          <td>Description</td>
-          <td>Category</td>
-          <td align="right">Amount</td>
-        </tr>
-      </thead>
-      <tbody>
-        {expenses.map(({ id, description, category, amount }) => (
-          <tr key={id}>
-            <td>2020-06-24</td>
-            <td>{description}</td>
-            <td>{category || 'None?'}</td>
-            <td align="right">{amount}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <>
+      {expenses.map(({ id, description, category, amount }) => (
+        <fieldset key={id} style={{ marginBottom: 0 }}>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              marginBottom: 8
+            }}
+          >
+            <h4 style={{ margin: 0 }}>{description}</h4>
+            <p
+              style={{ textAlign: 'right', margin: 0, fontFamily: 'monospace' }}
+            >
+              {amount}
+            </p>
+          </div>
+          <code>{category || 'None?'}</code> &mdash; <small>2020-06-24</small>
+        </fieldset>
+      ))}
+    </>
   )
 }
 

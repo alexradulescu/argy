@@ -4,7 +4,7 @@ import { useCategories } from '../hooks'
 
 export const CategoryFormContainer: FC = () => {
   const [category, setCategory] = useState({
-    title: '',
+    label: '',
     treshold: ''
   })
 
@@ -19,14 +19,17 @@ export const CategoryFormContainer: FC = () => {
 
   const clearForm = () => {
     setCategory({
-      title: '',
+      label: '',
       treshold: ''
     })
   }
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    submitCategory(category)
+    submitCategory({
+      ...category,
+      value: category.label.toLowerCase().replace(/\s/g, '_')
+    })
     clearForm()
   }
 
@@ -38,15 +41,15 @@ export const CategoryFormContainer: FC = () => {
         <input
           id="outlined-basic"
           placeholder="Title"
-          name="title"
+          name="label"
           type="text"
-          value={category.title}
+          value={category.label}
           onChange={onChangeCategory}
           required
         />
       </label>
       <label>
-        <p>Title</p>
+        <p>Amount</p>
         <input
           id="outlined-basic"
           placeholder="Amount"

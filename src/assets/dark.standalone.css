@@ -36,7 +36,9 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
   line-height: 1.4;
 
   max-width: 800px;
@@ -49,12 +51,14 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-button, input, textarea {
+button,
+input,
+textarea {
   transition: background-color var(--animation-duration) linear,
-              border-color var(--animation-duration) linear,
-              color var(--animation-duration) linear,
-              box-shadow var(--animation-duration) linear,
-              transform var(--animation-duration) ease;
+    border-color var(--animation-duration) linear,
+    color var(--animation-duration) linear,
+    box-shadow var(--animation-duration) linear,
+    transform var(--animation-duration) ease;
 }
 
 h1 {
@@ -94,14 +98,15 @@ th {
 }
 
 q:before {
-   content: none;
+  content: none;
 }
 
 q:after {
-   content: none;
+  content: none;
 }
 
-blockquote , q{
+blockquote,
+q {
   border-left: 4px solid var(--focus);
   margin: 1.5em 0em;
   padding: 0.5em 1em;
@@ -140,7 +145,8 @@ mark {
   color: #000000;
 }
 
-button, select,
+button,
+select,
 input[type='submit'],
 input[type='button'],
 input[type='checkbox'],
@@ -188,7 +194,8 @@ textarea {
 }
 
 select {
-  background: var(--background) var(--select-arrow) calc(100% - 12px) 50% / 12px no-repeat;
+  background: var(--background) var(--select-arrow) calc(100% - 12px) 50% / 12px
+    no-repeat;
   padding-right: 35px;
 }
 
@@ -400,8 +407,10 @@ a:hover {
   text-decoration: underline;
 }
 
-code, samp, time {
-  background:  var(--background);
+code,
+samp,
+time {
+  background: var(--background);
   color: var(--code);
   padding: 2.5px 5px;
   border-radius: 6px;
@@ -535,3 +544,44 @@ footer {
 }
 
 /*# sourceMappingURL=dark.standalone.css.map */
+
+/*
+  Meter by Alex
+*/
+meter {
+  --background: #dadada;
+  --optimum: forestgreen;
+  --sub-optimum: gold;
+  --sub-sub-optimum: crimson;
+
+  /* The gray background in Firefox */
+  display: block;
+  margin-bottom: 1em;
+  width: 100%;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+/* The gray background in Chrome, etc. */
+meter::-webkit-meter-bar {
+  background: var(--background);
+  border: 0;
+}
+
+/* The green (optimum) bar */
+meter:-moz-meter-optimum::-moz-meter-bar,
+meter::-webkit-meter-optimum-value {
+  background: var(--optimum);
+}
+
+/* The yellow (sub-optimum) bar */
+meter:-moz-meter-sub-optimum::-moz-meter-bar,
+meter::-webkit-meter-suboptimum-value {
+  background: var(--sub-optimum);
+}
+
+/* The red (even less good) bar  */
+meter:-moz-meter-sub-sub-optimum::-moz-meter-bar,
+meter::-webkit-meter-even-less-good-value {
+  background: var(--sub-sub-optimum);
+}

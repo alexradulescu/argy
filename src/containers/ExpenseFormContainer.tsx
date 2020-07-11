@@ -1,9 +1,10 @@
 import React, { FC, useState } from 'react'
 
-import { useExpenses } from '../hooks'
+import { useExpenses, useCategories } from '../hooks'
 
 export const ExpenseFormContainer: FC = () => {
   const { submitExpense } = useExpenses()
+  const { categories } = useCategories()
   const [expense, setExpense] = useState({
     description: '',
     amount: '',
@@ -33,46 +34,50 @@ export const ExpenseFormContainer: FC = () => {
 
   return (
     <form style={{ marginTop: 16 }} onSubmit={onSubmit}>
-      <h3 style={{ margin: '0 0 16px 0' }}>Add Expense</h3>
-      <label>
-        <input
-          id="outlined-basic"
-          placeholder="Description"
-          name="description"
-          type="text"
-          value={expense.description}
-          onChange={onChangeExpense}
-          required
-        />
-      </label>
-      <label>
-        <input
-          id="outlined-basic"
-          placeholder="Amount"
-          name="amount"
-          type="number"
-          value={expense.amount}
-          onChange={onChangeExpense}
-          required
-        />
-      </label>
-      <label>
-        <p>Category</p>
-        <select
-          name="category"
-          value={expense.category}
-          onChange={onChangeExpense}
-          placeholder="Category"
-        >
-          <option value="" disabled>
-            None
-          </option>
-          <option value="rentMortgage">Rent/Mortgage</option>
-          <option value="food">Food</option>
-          <option value="utilitiesBills">Utilities/Bills</option>
-        </select>
-      </label>
-      <button type="submit">Add Expense</button>
+      <fieldset>
+        <h3 style={{ margin: '0 0 16px 0' }}>Add Expense</h3>
+        <label>
+          <input
+            id="outlined-basic"
+            placeholder="Description"
+            name="description"
+            type="text"
+            value={expense.description}
+            onChange={onChangeExpense}
+            required
+          />
+        </label>
+        <label>
+          <input
+            id="outlined-basic"
+            placeholder="Amount"
+            name="amount"
+            type="number"
+            value={expense.amount}
+            onChange={onChangeExpense}
+            required
+          />
+        </label>
+        <label>
+          <p>Category</p>
+          <select
+            name="category"
+            value={expense.category}
+            onChange={onChangeExpense}
+            placeholder="Category"
+          >
+            <option value="" disabled>
+              None
+            </option>
+            {categories.map(({ label, value }) => (
+              <option key={value} value={value}>
+                {label}
+              </option>
+            ))}
+          </select>
+        </label>
+        <button type="submit">Add Expense</button>
+      </fieldset>
     </form>
   )
 }
