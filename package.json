@@ -5,12 +5,11 @@
   "keywords": [],
   "main": "src/index.tsx",
   "dependencies": {
-    "@material-ui/core": "4.10.2",
-    "@material-ui/lab": "4.0.0-alpha.56",
     "firebase": "7.15.5",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-router": "5.2.0",
+    "react-router-dom": "5.2.0",
     "react-scripts": "3.4.1"
   },
   "devDependencies": {

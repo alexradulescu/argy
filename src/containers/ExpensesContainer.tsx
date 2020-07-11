@@ -1,11 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Table from '@material-ui/core/Table'
-import TableBody from '@material-ui/core/TableBody'
-import TableCell from '@material-ui/core/TableCell'
-import TableContainer from '@material-ui/core/TableContainer'
-import TableHead from '@material-ui/core/TableHead'
-import TableRow from '@material-ui/core/TableRow'
-import Paper from '@material-ui/core/Paper'
 
 import { database } from '../firebase'
 
@@ -29,28 +22,26 @@ export const ExpensesContainer = () => {
   }, [])
 
   return (
-    <TableContainer component={Paper}>
-      <Table size="small" aria-label="a dense table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Date</TableCell>
-            <TableCell>Description</TableCell>
-            <TableCell>Category</TableCell>
-            <TableCell align="right">Amount</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {expenses.map(({ id, description, category, amount }) => (
-            <TableRow key={id}>
-              <TableCell>2020-06-24</TableCell>
-              <TableCell>{description}</TableCell>
-              <TableCell>{category || 'None?'}</TableCell>
-              <TableCell align="right">{amount}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <table>
+      <thead>
+        <tr>
+          <td>Date</td>
+          <td>Description</td>
+          <td>Category</td>
+          <td align="right">Amount</td>
+        </tr>
+      </thead>
+      <tbody>
+        {expenses.map(({ id, description, category, amount }) => (
+          <tr key={id}>
+            <td>2020-06-24</td>
+            <td>{description}</td>
+            <td>{category || 'None?'}</td>
+            <td align="right">{amount}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   )
 }
 

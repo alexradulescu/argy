@@ -1,14 +1,4 @@
 import React, { FC, useState } from 'react'
-import {
-  Button,
-  TextField,
-  FormControl,
-  Select,
-  InputLabel,
-  MenuItem,
-  Paper,
-  Typography
-} from '@material-ui/core'
 
 import { database } from '../firebase'
 
@@ -41,60 +31,48 @@ export const ExpenseFormContainer: FC = () => {
   }
 
   return (
-    <Paper
-      component="form"
-      style={{ padding: 16, marginTop: 16 }}
-      onSubmit={onSubmit}
-    >
-      <FormControl margin="dense" fullWidth>
-        <h3 style={{ margin: '0 0 16px 0' }}>Add Expense</h3>
-        <TextField
+    <form style={{ padding: 16, marginTop: 16 }} onSubmit={onSubmit}>
+      <h3 style={{ margin: '0 0 16px 0' }}>Add Expense</h3>
+      <label>
+        <input
           id="outlined-basic"
-          label="Description"
-          variant="outlined"
+          placeholder="Description"
           name="description"
           type="text"
           value={expense.description}
           onChange={onChangeExpense}
-          size="small"
           required
         />
-      </FormControl>
-      <FormControl margin="dense" fullWidth>
-        <TextField
+      </label>
+      <label>
+        <input
           id="outlined-basic"
-          label="Amount"
-          variant="outlined"
+          placeholder="Amount"
           name="amount"
           type="number"
           value={expense.amount}
           onChange={onChangeExpense}
-          size="small"
           required
         />
-      </FormControl>
-      <FormControl variant="outlined" fullWidth size="small" margin="dense">
-        <InputLabel>Category</InputLabel>
-        <Select
+      </label>
+      <label>
+        <p>Category</p>
+        <select
           name="category"
           value={expense.category}
           onChange={onChangeExpense}
-          label="Category"
+          placeholder="Category"
         >
-          <MenuItem value="" disabled>
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value="rentMortgage">Rent/Mortgage</MenuItem>
-          <MenuItem value="food">Food</MenuItem>
-          <MenuItem value="utilitiesBills">Utilities/Bills</MenuItem>
-        </Select>
-      </FormControl>
-      <FormControl fullWidth margin="dense">
-        <Button type="submit" variant="contained" color="primary" size="large">
-          Add Expense
-        </Button>
-      </FormControl>
-    </Paper>
+          <option value="" disabled>
+            None
+          </option>
+          <option value="rentMortgage">Rent/Mortgage</option>
+          <option value="food">Food</option>
+          <option value="utilitiesBills">Utilities/Bills</option>
+        </select>
+      </label>
+      <button type="submit">Add Expense</button>
+    </form>
   )
 }
 
