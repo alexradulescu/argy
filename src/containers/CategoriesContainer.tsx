@@ -20,7 +20,7 @@ export const CategoriesContainer = () => {
             <p
               style={{ textAlign: 'right', margin: 0, fontFamily: 'monospace' }}
             >
-              000 / {treshold}
+              {spent} / {treshold}
             </p>
           </div>
           <meter
