@@ -1,8 +1,9 @@
 import React, { FC, useState } from 'react'
 
-import { database } from '../firebase'
+import { useExpenses } from '../hooks'
 
 export const ExpenseFormContainer: FC = () => {
+  const { submitExpense } = useExpenses()
   const [expense, setExpense] = useState({
     description: '',
     amount: '',
@@ -26,12 +27,12 @@ export const ExpenseFormContainer: FC = () => {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    database.collection('expenses').add(expense)
+    submitExpense(expense)
     clearForm()
   }
 
   return (
-    <form style={{ padding: 16, marginTop: 16 }} onSubmit={onSubmit}>
+    <form style={{ marginTop: 16 }} onSubmit={onSubmit}>
       <h3 style={{ margin: '0 0 16px 0' }}>Add Expense</h3>
       <label>
         <input

@@ -1,25 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
-import { database } from '../firebase'
+import { useExpenses } from '../hooks'
 
 export const ExpensesContainer = () => {
-  const [expenses, setExpenses] = useState([])
-
-  useEffect(() => {
-    const expensesConnection = database
-      .collection('expenses')
-      // .where('date', '>', '2020-06-27')
-      .onSnapshot(snapshot => {
-        const fetchedExpenses = snapshot.docs.map(document => ({
-          id: document.id,
-          ...document.data()
-        }))
-        setExpenses(fetchedExpenses)
-      })
-    return () => {
-      expensesConnection()
-    }
-  }, [])
+  const { expenses } = useExpenses()
 
   return (
     <table>

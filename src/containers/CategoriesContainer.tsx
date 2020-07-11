@@ -1,25 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
-import { database } from '../firebase'
+import { useCategories } from '../hooks'
 
 export const CategoriesContainer = () => {
-  const [categories, setCategories] = useState([])
-
-  useEffect(() => {
-    const categoriesConnection = database
-      .collection('categories')
-      // .where('date', '>', '2020-06-27')
-      .onSnapshot(snapshot => {
-        const fetchedCategories = snapshot.docs.map(document => ({
-          id: document.id,
-          ...document.data()
-        }))
-        setCategories(fetchedCategories)
-      })
-    return () => {
-      categoriesConnection()
-    }
-  }, [])
+  const { categories } = useCategories()
 
   return (
     <table>

@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 
 import { ExpensesContainer, ExpenseFormContainer } from '../containers'
+import { PageHeader } from '../shared-components'
 
 export const HomePage: FC = () => {
   return (
@@ -13,7 +14,7 @@ export const HomePage: FC = () => {
         margin: 'auto'
       }}
     >
-      <h2>Dashboard</h2>
+      <PageHeader title="Dashboard" />
       <ExpensesContainer />
       <ExpenseFormContainer />
     </div>
