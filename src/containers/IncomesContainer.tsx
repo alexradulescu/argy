@@ -1,13 +1,13 @@
 import React from 'react'
 
-import { useExpenses } from '../hooks'
+import { useIncomes } from '../hooks'
 
-export const ExpensesContainer = () => {
-  const { expenses, deleteExpense } = useExpenses()
+export const IncomesContainer = () => {
+  const { incomes, deleteIncome } = useIncomes()
 
   return (
     <>
-      {expenses.map(({ id, description, category, amount, date }) => (
+      {incomes.map(({ id, description, amount, date }) => (
         <fieldset key={id} style={{ marginBottom: 0 }}>
           <div
             style={{
@@ -31,10 +31,9 @@ export const ExpensesContainer = () => {
             }}
           >
             <span>
-              <code>{category || 'None?'}</code> &mdash;{' '}
               <small>{date || '??'}</small>
             </span>
-            <button onClick={() => deleteExpense(id)}>X</button>
+            <button onClick={() => deleteIncome(id)}>X</button>
           </div>
         </fieldset>
       ))}
@@ -42,4 +41,4 @@ export const ExpensesContainer = () => {
   )
 }
 
-ExpensesContainer.displayName = 'ExpensesContainer'
+IncomesContainer.displayName = 'IncomesContainer'

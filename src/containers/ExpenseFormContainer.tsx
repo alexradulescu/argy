@@ -1,9 +1,10 @@
 import React, { FC, useState } from 'react'
 
-import { useExpenses, useCategories } from '../hooks'
+import { useExpenses, useCategories, useIncomes } from '../hooks'
 
 export const ExpenseFormContainer: FC = () => {
   const { submitExpense } = useExpenses()
+  const { submitIncome } = useIncomes()
   const { categories } = useCategories()
   const [expense, setExpense] = useState({
     description: '',
@@ -30,7 +31,20 @@ export const ExpenseFormContainer: FC = () => {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    submitExpense(expense)
+    submitExpense({
+      ...expense,
+      amount: Number(expense.amount)
+    })
+    clearForm()
+  }
+
+  const addIncome = (e: React.ButtonEvent) => {
+    e.preventDefault()
+    submitIncome({
+      description: expense.description,
+      amount: Number(expense.amount),
+      date: expense.date
+    })
     clearForm()
   }
 
@@ -89,6 +103,7 @@ export const ExpenseFormContainer: FC = () => {
           />
         </label>
         <button type="submit">Add Expense</button>
+        <button onClick={addIncome}>Add Income</button>
       </fieldset>
     </form>
   )

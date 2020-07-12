@@ -2,43 +2,43 @@ import { useEffect, useState } from 'react'
 
 import { database } from '../firebase'
 
-export const useExpenses = (
+export const useIncomes = (
   year = new Date().toISOString().substring(0, 4),
   month = new Date().toISOString().substring(5, 7)
 ) => {
-  const [expenses, setExpenses] = useState([])
+  const [incomes, setIncomes] = useState([])
 
   useEffect(() => {
-    const expensesConnection = database
-      .collection('expenses')
+    const incomesConnection = database
+      .collection('incomes')
       .where('date', '>=', `${year}-${month}-01`)
       .where('date', '<=', `${year}-${month}-31`)
       .onSnapshot(snapshot => {
-        const fetchedExpenses = snapshot.docs.map(document => ({
+        const fetchedIncomes = snapshot.docs.map(document => ({
           id: document.id,
           ...document.data()
         }))
-        setExpenses(fetchedExpenses)
+        setIncomes(fetchedIncomes)
       })
     return () => {
-      expensesConnection()
+      incomesConnection()
     }
   }, [month, year])
 
-  const submitExpense = async expense => {
-    await database.collection('expenses').add(expense)
+  const submitIncome = async income => {
+    database.collection('incomes').add(income)
   }
 
-  const deleteExpense = async (expenseId: string) => {
+  const deleteIncome = async (incomeId: string) => {
     try {
       await database
-        .collection('expenses')
-        .doc(expenseId)
+        .collection('incomes')
+        .doc(incomeId)
         .delete()
     } catch (error) {
       alert(error)
     }
   }
 
-  return { expenses, submitExpense, deleteExpense }
+  return { incomes, submitIncome, deleteIncome }
 }

@@ -4,9 +4,9 @@ import { NavLink } from 'react-router-dom'
 export const Navigation = () => (
   <nav
     style={{
-      gridTemplateColumns: 'auto auto',
+      gridTemplateColumns: 'auto auto auto',
       display: 'grid',
-      gridGap: 16
+      gridGap: 8
     }}
   >
     <NavLink
@@ -27,6 +27,15 @@ export const Navigation = () => (
       to="/categories"
     >
       Categories
+    </NavLink>
+    <NavLink
+      activeStyle={{
+        fontWeight: 'bold',
+        textDecoration: 'underline'
+      }}
+      to="/incomes"
+    >
+      Incomes
     </NavLink>
   </nav>
 )

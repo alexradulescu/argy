@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-import { CategoriesPage, HomePage } from './pages'
+import { CategoriesPage, HomePage, IncomesPage } from './pages'
 
 export const App: FC = () => {
   return (
@@ -12,6 +12,9 @@ export const App: FC = () => {
         </Route>
         <Route path="/categories">
           <CategoriesPage />
+        </Route>
+        <Route path="/incomes">
+          <IncomesPage />
         </Route>
       </Switch>
     </Router>

@@ -25,5 +25,16 @@ export const useCategories = () => {
     database.collection('categories').add(category)
   }
 
-  return { categories, submitCategory }
+  const deleteCategory = async (categoryId: string) => {
+    try {
+      await database
+        .collection('categories')
+        .doc(categoryId)
+        .delete()
+    } catch (error) {
+      alert(error)
+    }
+  }
+
+  return { categories, submitCategory, deleteCategory }
 }
