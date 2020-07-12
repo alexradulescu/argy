@@ -8,7 +8,8 @@ export const ExpenseFormContainer: FC = () => {
   const [expense, setExpense] = useState({
     description: '',
     amount: '',
-    category: ''
+    category: '',
+    date: new Date().toISOString().substring(0, 10)
   })
 
   const onChangeExpense = (e: React.InputEvent) => {
@@ -22,7 +23,8 @@ export const ExpenseFormContainer: FC = () => {
     setExpense({
       description: '',
       amount: '',
-      category: ''
+      category: '',
+      date: new Date().toISOString().substring(0, 10)
     })
   }
 
@@ -59,15 +61,15 @@ export const ExpenseFormContainer: FC = () => {
           />
         </label>
         <label>
-          <p>Category</p>
           <select
             name="category"
             value={expense.category}
             onChange={onChangeExpense}
             placeholder="Category"
+            required
           >
             <option value="" disabled>
-              None
+              Choose the Category...
             </option>
             {categories.map(({ label, value }) => (
               <option key={value} value={value}>
@@ -75,6 +77,16 @@ export const ExpenseFormContainer: FC = () => {
               </option>
             ))}
           </select>
+        </label>
+        <label>
+          <input
+            type="date"
+            name="date"
+            value={expense.date}
+            onChange={onChangeExpense}
+            placeholder="date"
+            required
+          />
         </label>
         <button type="submit">Add Expense</button>
       </fieldset>

@@ -7,7 +7,7 @@ export const ExpensesContainer = () => {
 
   return (
     <>
-      {expenses.map(({ id, description, category, amount }) => (
+      {expenses.map(({ id, description, category, amount, date }) => (
         <fieldset key={id} style={{ marginBottom: 0 }}>
           <div
             style={{
@@ -23,7 +23,8 @@ export const ExpensesContainer = () => {
               {amount}
             </p>
           </div>
-          <code>{category || 'None?'}</code> &mdash; <small>2020-06-24</small>
+          <code>{category || 'None?'}</code> &mdash;{' '}
+          <small>{date || '??'}</small>
         </fieldset>
       ))}
     </>
