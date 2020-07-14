@@ -2,9 +2,9 @@ import React, { FC } from 'react'
 import { Navigation } from './Navigation'
 
 export const PageFooter: FC = () => (
-  <footer>
+  <fieldset>
     <Navigation />
-  </footer>
+  </fieldset>
 )
 
 PageFooter.displayName = 'PageFooter'
