@@ -49,9 +49,9 @@ export const ExpenseFormContainer: FC = () => {
   }
 
   return (
-    <form style={{ marginTop: 16 }} onSubmit={onSubmit}>
+    <form onSubmit={onSubmit}>
       <fieldset>
-        <h3 style={{ margin: '0 0 16px 0' }}>Add Expense</h3>
+        <legend>Add Expense</legend>
         <label>
           <input
             id="outlined-basic"

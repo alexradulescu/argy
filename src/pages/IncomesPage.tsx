@@ -5,20 +5,13 @@ import { PageHeader } from '../shared-components'
 
 export const IncomesPage: FC = () => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        maxWidth: 960,
-        width: '90%',
-        margin: 'auto'
-      }}
-    >
+    <main>
       <PageHeader title="Incomes" />
-
+      <br />
       <IncomesContainer />
+      <br />
       <ExpenseFormContainer />
-    </div>
+    </main>
   )
 }
 

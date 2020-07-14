@@ -34,34 +34,35 @@ export const CategoryFormContainer: FC = () => {
   }
 
   return (
-    <form style={{ marginTop: 16 }} onSubmit={onSubmit}>
-      <h3 style={{ margin: '0 0 16px 0' }}>Add Expense</h3>
-      <label>
-        <p>Title</p>
-        <input
-          id="outlined-basic"
-          placeholder="Title"
-          name="label"
-          type="text"
-          value={category.label}
-          onChange={onChangeCategory}
-          required
-        />
-      </label>
-      <label>
-        <p>Amount</p>
-        <input
-          id="outlined-basic"
-          placeholder="Amount"
-          name="treshold"
-          type="number"
-          value={category.treshold}
-          onChange={onChangeCategory}
-          required
-        />
-      </label>
-
-      <button type="submit">Add Category</button>
+    <form onSubmit={onSubmit}>
+      <fieldset>
+        <legend>Add Category</legend>
+        <label>
+          <input
+            id="outlined-basic"
+            placeholder="Title"
+            name="label"
+            type="text"
+            value={category.label}
+            onChange={onChangeCategory}
+            required
+          />
+        </label>
+        <label>
+          <input
+            id="outlined-basic"
+            placeholder="Max Amount"
+            name="treshold"
+            type="number"
+            value={category.treshold}
+            onChange={onChangeCategory}
+            required
+          />
+        </label>
+        <label>
+          <button type="submit">Add Category</button>
+        </label>
+      </fieldset>
     </form>
   )
 }

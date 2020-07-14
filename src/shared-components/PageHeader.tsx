@@ -9,8 +9,7 @@ export const PageHeader: FC<Props> = ({ title }) => (
   <header
     style={{
       display: 'flex',
-      justifyContent: 'space-between',
-      marginBottom: 24
+      justifyContent: 'space-between'
     }}
   >
     <h2 style={{ margin: 0 }}>{title}</h2>

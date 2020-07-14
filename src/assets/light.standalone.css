@@ -1,38 +1,44 @@
 /**
- * Standalone dark-themed version.
- * Includes dark variables and core, left as CSS variables
+ * Standalone light-themed version.
+ * Includes light variables and core, left as CSS variables
  * so the theming can be adjusted at runtime.
  */
 
 :root {
-  --background-body: #202b38;
-  --background: #161f27;
-  --background-alt: #1a242f;
+  --background-body: #ffffff;
+  --background: #efefef;
+  --background-alt: #f7f7f7;
 
-  --selection: #161f27;
+  --selection: #9e9e9e;
 
-  --text-main: #dbdbdb;
-  --text-bright: #ffffff;
-  --text-muted: #717880;
+  --text-main: #363636;
+  --text-bright: #000000;
+  --text-muted: #999999;
 
-  --links: #41adff;
+  --links: #0076d1;
   --focus: #0096bfab;
   --border: #dbdbdb;
-  --code: #ffbe85;
+  --code: #000000;
 
   --animation-duration: 0.1s;
-  --button-hover: #324759;
+  --button-hover: #dddddd;
 
-  --scrollbar-thumb: var(--button-hover);
-  --scrollbar-thumb-hover: rgb(65, 92, 115);
+  --scrollbar-thumb: rgb(213, 213, 213);
+  --scrollbar-thumb-hover: rgb(196, 196, 196);
 
-  --form-placeholder: #a9a9a9;
-  --form-text: #ffffff;
+  --form-placeholder: #949494;
+  --form-text: #000000;
 
-  --variable: #d941e2;
-  --highlight: #efdb43;
+  --variable: #39a33c;
+  --highlight: #ffff00;
 
-  --select-arrow: url("data:image/svg+xml;charset=utf-8,%3C?xml version='1.0' encoding='utf-8'?%3E %3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' height='62.5' width='116.9' fill='%23efefef'%3E %3Cpath d='M115.3,1.6 C113.7,0 111.1,0 109.5,1.6 L58.5,52.7 L7.4,1.6 C5.8,0 3.2,0 1.6,1.6 C0,3.2 0,5.8 1.6,7.4 L55.5,61.3 C56.3,62.1 57.3,62.5 58.4,62.5 C59.4,62.5 60.5,62.1 61.3,61.3 L115.2,7.4 C116.9,5.8 116.9,3.2 115.3,1.6Z'/%3E %3C/svg%3E");
+  --select-arrow: url("data:image/svg+xml;charset=utf-8,%3C?xml version='1.0' encoding='utf-8'?%3E %3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' height='62.5' width='116.9' fill='%23161f27'%3E %3Cpath d='M115.3,1.6 C113.7,0 111.1,0 109.5,1.6 L58.5,52.7 L7.4,1.6 C5.8,0 3.2,0 1.6,1.6 C0,3.2 0,5.8 1.6,7.4 L55.5,61.3 C56.3,62.1 57.3,62.5 58.4,62.5 C59.4,62.5 60.5,62.1 61.3,61.3 L115.2,7.4 C116.9,5.8 116.9,3.2 115.3,1.6Z'/%3E %3C/svg%3E");
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
 }
 
 body {
@@ -54,6 +60,8 @@ body {
 button,
 input,
 textarea {
+  font-size: inherit;
+  font-family: inherit;
   transition: background-color var(--animation-duration) linear,
     border-color var(--animation-duration) linear,
     color var(--animation-duration) linear,
@@ -127,15 +135,15 @@ address {
 }
 
 a[href^='mailto']::before {
-  content: 'ð§ ';
+  content: '📧 ';
 }
 
 a[href^='tel']::before {
-  content: 'ð ';
+  content: '📞 ';
 }
 
 a[href^='sms']::before {
-  content: 'ð¬ ';
+  content: '💬 ';
 }
 
 mark {
@@ -170,12 +178,12 @@ select {
   font-family: inherit;
   font-size: inherit;
 
-  margin-right: 6px;
-  margin-bottom: 6px;
-  padding: 10px 14px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  padding: 10px 12px;
 
   border: none;
-  border-radius: 14px;
+  border-radius: 12px;
   outline: none;
 }
 
@@ -229,6 +237,15 @@ textarea:focus {
   box-shadow: 0 0 0 2px var(--focus);
 }
 
+button[type='submit'] {
+  background-color: #1b2836;
+  color: white;
+}
+button[type='submit']:focus,
+button[type='submit']:hover {
+  background-color: black;
+}
+
 input[type='checkbox'],
 input[type='radio'] {
   position: relative;
@@ -251,7 +268,7 @@ input[type='radio']:checked {
 
 input[type='checkbox']:checked::before,
 input[type='radio']:checked::before {
-  content: 'â¢';
+  content: '•';
   display: block;
   position: absolute;
   left: 50%;
@@ -260,7 +277,7 @@ input[type='radio']:checked::before {
 }
 
 input[type='checkbox']:checked::before {
-  content: 'â';
+  content: '✔';
   transform: translateY(-50%) translateY(0.5px) translateX(-6px);
 }
 
@@ -298,10 +315,10 @@ textarea:disabled {
 }
 
 fieldset {
-  border: 1px var(--focus) solid;
-  border-radius: 6px;
+  border: 1px #b8bfcf solid;
+  border-radius: 16px;
   margin: 0;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   padding: 10px;
 }
 
@@ -543,45 +560,78 @@ footer {
   color: var(--text-muted);
 }
 
-/*# sourceMappingURL=dark.standalone.css.map */
+/*# sourceMappingURL=light.standalone.css.map */
 
-/*
-  Meter by Alex
-*/
-meter {
-  --background: #dadada;
-  --optimum: forestgreen;
-  --sub-optimum: gold;
-  --sub-sub-optimum: crimson;
-
-  /* The gray background in Firefox */
+/* Alex */
+label {
   display: block;
-  margin-bottom: 1em;
+}
+
+label > p {
+  margin-bottom: 8px;
+}
+
+label > input,
+label > select,
+label > textarea,
+label > button {
   width: 100%;
-  border-radius: 9999px;
-  overflow: hidden;
 }
 
-/* The gray background in Chrome, etc. */
-meter::-webkit-meter-bar {
-  background: var(--background);
-  border: 0;
+dl {
+  display: flex;
+  margin: 0;
 }
 
-/* The green (optimum) bar */
-meter:-moz-meter-optimum::-moz-meter-bar,
-meter::-webkit-meter-optimum-value {
-  background: var(--optimum);
+dl + dl {
+  margin-top: 8px;
 }
 
-/* The yellow (sub-optimum) bar */
-meter:-moz-meter-sub-optimum::-moz-meter-bar,
-meter::-webkit-meter-suboptimum-value {
-  background: var(--sub-optimum);
+dt {
+  flex: 1;
+}
+dd {
+  flex: 1;
+  text-align: right;
 }
 
-/* The red (even less good) bar  */
-meter:-moz-meter-sub-sub-optimum::-moz-meter-bar,
-meter::-webkit-meter-even-less-good-value {
-  background: var(--sub-sub-optimum);
+nav > a {
+  font-size: inherit;
+  font-family: inherit;
+  transition: background-color var(--animation-duration) linear,
+    border-color var(--animation-duration) linear,
+    color var(--animation-duration) linear,
+    box-shadow var(--animation-duration) linear,
+    transform var(--animation-duration) ease;
+
+  color: var(--form-text);
+  background-color: var(--background);
+
+  font-family: inherit;
+  font-size: inherit;
+
+  margin-right: 4px;
+  padding: 6px 10px;
+
+  border: none;
+  border-radius: 12px;
+  outline: none;
+}
+
+nav > a:hover {
+  text-decoration: none;
+}
+
+nav > a:focus {
+  box-shadow: 0 0 0 2px var(--focus);
+}
+
+nav > a:hover {
+  background: var(--button-hover);
+}
+
+main {
+  max-width: 960px;
+  width: 90%;
+  margin: auto;
 }

@@ -1,44 +1,33 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { useExpenses } from '../hooks'
 
-export const ExpensesContainer = () => {
+export const ExpensesContainer: FC = () => {
   const { expenses, deleteExpense } = useExpenses()
 
   return (
-    <>
+    <fieldset>
       {expenses.map(({ id, description, category, amount, date }) => (
-        <fieldset key={id} style={{ marginBottom: 0 }}>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              marginBottom: 8
-            }}
-          >
-            <h4 style={{ margin: 0 }}>{description}</h4>
-            <p
-              style={{ textAlign: 'right', margin: 0, fontFamily: 'monospace' }}
-            >
-              {amount}
-            </p>
-          </div>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              marginBottom: 8
-            }}
-          >
-            <span>
-              <code>{category || 'None?'}</code> &mdash;{' '}
-              <small>{date || '??'}</small>
-            </span>
-            <button onClick={() => deleteExpense(id)}>X</button>
-          </div>
-        </fieldset>
+        <>
+          <dl key={id} style={{ marginBottom: 0 }}>
+            <dt>
+              <h4 style={{ margin: 0 }}>{description}</h4>
+              <span>
+                <code>{category || 'None?'}</code> &mdash;{' '}
+                <small>{date || '??'}</small>
+              </span>
+            </dt>
+            <dd>
+              <p style={{ margin: 0, fontFamily: 'monospace' }}>
+                <strong>{amount}</strong>
+              </p>
+              <code onClick={() => deleteExpense(id)}>X</code>
+            </dd>
+          </dl>
+          <br />
+        </>
       ))}
-    </>
+    </fieldset>
   )
 }
 
