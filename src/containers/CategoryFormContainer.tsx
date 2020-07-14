@@ -10,7 +10,7 @@ export const CategoryFormContainer: FC = () => {
 
   const { submitCategory } = useCategories()
 
-  const onChangeCategory = (e: React.InputEvent) => {
+  const onChangeCategory = (e: React.InputEvent<HTMLInputElement>) => {
     setCategory({
       ...category,
       [e.target.name]: e.target.value
@@ -24,7 +24,7 @@ export const CategoryFormContainer: FC = () => {
     })
   }
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     submitCategory({
       ...category,
