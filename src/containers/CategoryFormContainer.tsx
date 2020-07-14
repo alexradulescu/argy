@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, ChangeEvent } from 'react'
 
 import { useCategories } from '../hooks'
 
@@ -10,7 +10,9 @@ export const CategoryFormContainer: FC = () => {
 
   const { submitCategory } = useCategories()
 
-  const onChangeCategory = e => {
+  const onChangeCategory = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     setCategory({
       ...category,
       [e.target.name]: e.target.value
@@ -24,7 +26,7 @@ export const CategoryFormContainer: FC = () => {
     })
   }
 
-  const onSubmit = e => {
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     submitCategory({
       ...category,

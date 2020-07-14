@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, FormEvent, ChangeEvent, MouseEvent } from 'react'
 
 import { useExpenses, useCategories, useIncomes } from '../hooks'
 
@@ -13,7 +13,9 @@ export const ExpenseFormContainer: FC = () => {
     date: new Date().toISOString().substring(0, 10)
   })
 
-  const onChangeExpense = e => {
+  const onChangeExpense = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     setExpense({
       ...expense,
       [e.target.name]: e.target.value
@@ -29,7 +31,7 @@ export const ExpenseFormContainer: FC = () => {
     })
   }
 
-  const onSubmit = e => {
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     submitExpense({
       ...expense,
@@ -38,7 +40,7 @@ export const ExpenseFormContainer: FC = () => {
     clearForm()
   }
 
-  const addIncome = e => {
+  const addIncome = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
     submitIncome({
       description: expense.description,
