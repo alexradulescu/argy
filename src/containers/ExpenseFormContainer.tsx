@@ -13,7 +13,7 @@ export const ExpenseFormContainer: FC = () => {
     date: new Date().toISOString().substring(0, 10)
   })
 
-  const onChangeExpense = (e: React.InputEvent<HTMLInputElement>) => {
+  const onChangeExpense = e => {
     setExpense({
       ...expense,
       [e.target.name]: e.target.value
@@ -29,7 +29,7 @@ export const ExpenseFormContainer: FC = () => {
     })
   }
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = e => {
     e.preventDefault()
     submitExpense({
       ...expense,
@@ -38,7 +38,7 @@ export const ExpenseFormContainer: FC = () => {
     clearForm()
   }
 
-  const addIncome = (e: React.ButtonEvent<HTMLButtonElement>) => {
+  const addIncome = e => {
     e.preventDefault()
     submitIncome({
       description: expense.description,
