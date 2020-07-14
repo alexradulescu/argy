@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 
 import { IncomesContainer, ExpenseFormContainer } from '../containers'
-import { PageHeader } from '../shared-components'
+import { PageHeader, PageFooter } from '../shared-components'
 
 export const IncomesPage: FC = () => {
   return (
@@ -11,6 +11,8 @@ export const IncomesPage: FC = () => {
       <IncomesContainer />
       <br />
       <ExpenseFormContainer />
+      <br />
+      <PageFooter />
     </main>
   )
 }

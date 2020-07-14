@@ -13,7 +13,6 @@ export const PageHeader: FC<Props> = ({ title }) => (
     }}
   >
     <h2 style={{ margin: 0 }}>{title}</h2>
-    <Navigation />
   </header>
 )
 

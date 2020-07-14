@@ -596,8 +596,6 @@ dd {
 }
 
 nav > a {
-  font-size: inherit;
-  font-family: inherit;
   transition: background-color var(--animation-duration) linear,
     border-color var(--animation-duration) linear,
     color var(--animation-duration) linear,
@@ -609,6 +607,7 @@ nav > a {
 
   font-family: inherit;
   font-size: inherit;
+  text-align: center;
 
   margin-right: 4px;
   padding: 6px 10px;

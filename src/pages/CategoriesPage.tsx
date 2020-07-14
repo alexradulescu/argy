@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 
 import { CategoriesContainer, CategoryFormContainer } from '../containers'
-import { PageHeader } from '../shared-components'
+import { PageHeader, PageFooter } from '../shared-components'
 
 export const CategoriesPage: FC = () => {
   return (
@@ -11,6 +11,8 @@ export const CategoriesPage: FC = () => {
       <CategoriesContainer />
       <br />
       <CategoryFormContainer />
+      <br />
+      <PageFooter />
     </main>
   )
 }
